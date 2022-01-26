@@ -14,7 +14,7 @@
 # lista[5] = "mere"
 # print(len(lista)) # cate elemente sunt in lista
 # print(lista.index(-5))
-lista = [8, 2, -5, "string", 2.7]
+# lista = [8, 2, -5, "string", 2.7]
 # lista.insert(3, "element nou")
 # lista.remove(-5) # scoate din lista remove face ref la denumirea elem
 # lista.pop(2) # face referire la indexu elementului
@@ -22,10 +22,10 @@ lista = [8, 2, -5, "string", 2.7]
 # lista.reverse() # ordoneaza invers elementele din lista
 # lista.pop(3)
 # lista_stringuri = ['2', '8', '21', '18', '121', '191'] lista_stringuri.sort() print(lista_stringuri) Asa se înțelege mai clar
-lista_stringuri = ['8', '2', "21"]
-print(hex('8'), '8')
-print(ord('2'), '2')
-print(ord('1'), '21')
-lista_stringuri.sort()
-print(lista_stringuri)
+# lista_stringuri = ['8', '2', "21"]
+# print(hex('8'), '8')
+# print(ord('2'), '2')
+# print(ord('1'), '21')
+# lista_stringuri.sort()
+# print(lista_stringuri)
 
