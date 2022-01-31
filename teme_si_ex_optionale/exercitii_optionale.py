@@ -22,3 +22,4 @@ for a in propozitie:
     total = total + 1
 
 print("Nr. total de caractere= ", total)
+# ok
