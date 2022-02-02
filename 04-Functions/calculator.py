@@ -40,6 +40,7 @@ def calculator():
         rezultat = inmultire(nr1, nr2)
     elif op == '/':
         rezultat = impartire(nr1, nr2)
-    return rezultat
+    # return f"{nr1} {op} {nr2} = ", eval(f"{nr1} {op} {nr2}")
+
 
 print(calculator())
