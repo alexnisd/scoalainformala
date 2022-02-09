@@ -83,13 +83,23 @@
 try:
     valoare = int(input("Prima cifra din cnp"))
     # impartire = 1/valoare
-    lista = 1
-    lista.append("2")
-except TypeError:
-    print("")
-except ValueError:
-    print("Ai introdus o litera in loc de cifra")
-except Exception as e:
-    print("Exceptie la impartire", e)
-except ZeroDivisionError:
-    print("Eroare la impartire")
+    lista = [1]
+    # lsita.append("2")
+    # valoare = lista[0.5]
+    # lista.append("2")
+    print('sunt in try')
+except (TypeError, AttributeError, ValueError, ZeroDivisionError):
+    print("tip de eroare")
+else:
+    print('nu exista exceptie')
+finally:
+    print('se executa oricum')
+    print("am iesit din try-except")
+# except AttributeError:
+#     print('eroare la atribute')
+# except ValueError:
+#     print("Ai introdus o litera in loc de cifra")
+# except Exception as e:
+#     print("Exceptie la impartire", e)
+# except ZeroDivisionError:
+#     print("Eroare la impartire")
