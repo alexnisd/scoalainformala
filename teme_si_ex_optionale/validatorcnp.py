@@ -1,25 +1,4 @@
 
-"""CNP (Cod Numeric Personal, Romanian Numerical Personal Code).
-The CNP is a 13 digit number that includes information on the person's
-gender, birth date and country zone.
-More information:
-* https://ro.wikipedia.org/wiki/Cod_numeric_personal
->>> validate('1630615123457')
-'1630615123457'
->>> validate('0800101221142')  # invalid first digit
-Traceback (most recent call last):
-    ...
-InvalidComponent: ...
->>> validate('1632215123457')  # invalid date
-Traceback (most recent call last):
-    ...
-InvalidComponent: ...
->>> validate('1630615123458')  # invalid check digit
-Traceback (most recent call last):
-    ...
-InvalidChecksum: ...
-"""
-
 import datetime
 
 from stdnum.exceptions import *
@@ -27,14 +6,10 @@ from stdnum.util import clean, isdigits
 
 
 def compact(number):
-    """Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace."""
     return clean(number, ' -').strip()
 
 
 def calc_check_digit(number):
-    """Calculate the check digit for personal codes."""
-    # note that this algorithm has not been confirmed by an independent source
     weights = (2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)
     check = sum(w * int(n) for w, n in zip(weights, number)) % 11
     return '1' if check == 10 else str(check)
