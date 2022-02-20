@@ -44,7 +44,7 @@ def playerMove():
                 else:
                     print('Acest spatiu este deja ocupat')
             else:
-                print('Doar numerer de la 1 la 9!')
+                print('Doar numere de la 1 la 9!')
         except:
             print('Introdu un numar')
 
