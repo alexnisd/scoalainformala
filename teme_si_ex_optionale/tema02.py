@@ -1,9 +1,9 @@
 # def your_function(a=1, b=5, c=-3):
 #
-#     return "3 (1 + 5 - 3)"
+#     return a + b - c
 #
 # print(your_function())
-#
+
 # def your_funtion(a=0, b=0):
 #     return a + b
 #
@@ -11,9 +11,9 @@
 #
 # print(sum)
 #
-# def your_function(a=1, b=5, c=-3):
+# def your_function(a=2, b=4):
 #
-#     return "6 (2 + 4)"
+#     return a + b
 #
 # print(your_function())
 #

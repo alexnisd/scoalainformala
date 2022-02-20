@@ -1,50 +1,90 @@
+import random
 
-import datetime
+print("Validator CNP")
 
-from stdnum.exceptions import *
-from stdnum.util import clean, isdigits
+def CNP():
+    global s, aa, ll, zz, jj, nnn, c, z
 
+    sexul = str(input("Introduceti sexul(masculin/feminin): "))
 
-def compact(number):
-    return clean(number, ' -').strip()
+    anul_nasterii = int(input("Introduceti ultimele 2 cifre in anul nasterii: "))
 
+    luna_nasterii = input("Introduceti luna nasterii: ")
 
-def calc_check_digit(number):
-    weights = (2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9)
-    check = sum(w * int(n) for w, n in zip(weights, number)) % 11
-    return '1' if check == 10 else str(check)
+    ziua_nasterii = input("Introduceti ziua nasterii: ")
 
+    judetul_inp = input("Introduceti judetul: ")
 
-def get_birth_date(number):
+    if sexul == "masculin":
+        s = 1
+    else:
+        s = 2
 
-    number = compact(number)
-    centuries = {
-        '1': 1900, '2': 1900, '3': 1800, '4': 1800, '5': 2000, '6': 2000}
-    year = int(number[1:3]) + centuries.get(number[0], 1900)
-    month = int(number[3:5])
-    day = int(number[5:7])
-    try:
-        return datetime.date(year, month, day)
-    except ValueError:
-        raise InvalidComponent()
+    if 00 <= int(anul_nasterii) <= 99:
+        aa = anul_nasterii
 
+    if 1 <= int(luna_nasterii) <= 12:
+        ll = luna_nasterii
 
-def validate(number):
-    number = compact(number)
-    if not isdigits(number):
-        raise InvalidFormat()
-    if number[0] not in '123456789':
-        raise InvalidComponent()
-    if len(number) != 13:
-        raise InvalidLength()
-    get_birth_date(number)
-    if calc_check_digit(number[:-1]) != number[-1]:
-        raise InvalidChecksum()
-    return number
+    if 1 <= int(ziua_nasterii) <= 31:
+        zz = ziua_nasterii
 
+    Judet = {1: "alba",
+             2: "arad",
+             3: "arges",
+             4: "bacau",
+             5: "bihor",
+             6: "bistrita-nasaud",
+             7: "botosani",
+             8: "brasov",
+             9: "braila",
+             10: "buzau",
+             11: "caras-severin",
+             12: "cluj",
+             13: "constanta",
+             14: "covasna",
+             15: "dambovita",
+             16: "dolj",
+             17: "galati",
+             18: "gorj",
+             19: "harghita",
+             20: "hunedoara",
+             21: "ialomita",
+             22: "iasi",
+             23: "ilfov",
+             24: "maramures",
+             25: "mehedinti",
+             26: "mures",
+             27: "neamt",
+             28: "olt",
+             29: "prahova",
+             30: "satu mare",
+             31: "salaj",
+             32: "sibiu",
+             33: "suceava",
+             34: "teleorman",
+             35: "timis",
+             36: "tulcea",
+             37: "vaslui",
+             38: "valcea",
+             39: "vrancea",
+             40: "bucuresti",
+             41: "bucuresti s.1",
+             42: "bucuresti s.2",
+             43: "bucuresti s.3",
+             44: "bucuresti s.4",
+             45: "bucuresti s.5",
+             46: "bucuresti s.6",
+             51: "calarasi",
+             52: "giurgiu"}
 
-def is_valid(number):
-    try:
-        return bool(validate(number))
-    except ValidationError:
-        return False
+    Judet_key = Judet
+    Judet_listin = list(Judet_key)
+    Judet_valori = Judet.values()
+    Judet_lista = list(Judet_valori)
+
+    if judetul_inp in Judet_lista:
+        index = Judet_lista.index(Judet)
+        jj = Judet_listin[index]
+
+CNP()
