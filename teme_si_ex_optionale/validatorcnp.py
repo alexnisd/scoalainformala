@@ -2,7 +2,9 @@ import random
 
 print("Validator CNP")
 
-def CNP():
+
+def cnp():
+
     global s, aa, ll, zz, jj, nnn, c, z
 
     sexul = str(input("Introduceti sexul(masculin/feminin): "))
@@ -29,7 +31,7 @@ def CNP():
     if 1 <= int(ziua_nasterii) <= 31:
         zz = ziua_nasterii
 
-    Judet = {1: "alba",
+    judet = {1: "alba",
              2: "arad",
              3: "arges",
              4: "bacau",
@@ -78,13 +80,15 @@ def CNP():
              51: "calarasi",
              52: "giurgiu"}
 
-    Judet_key = Judet
-    Judet_listin = list(Judet_key)
-    Judet_valori = Judet.values()
-    Judet_lista = list(Judet_valori)
+    judet_key = judet
+    judet_listin = list(judet_key)
+    judet_valori = judet.values()
+    judet_lista = list(judet_valori)
 
-    if judetul_inp in Judet_lista:
-        index = Judet_lista.index(Judet)
-        jj = Judet_listin[index]
+    if judetul_inp in judet_lista:
+        index = judet_lista.index(Judet)
+        jj = judet_listin[index]
+    return "CNP valid"
 
-CNP()
+cnp()
+
