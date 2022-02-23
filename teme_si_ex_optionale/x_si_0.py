@@ -1,137 +1,111 @@
-board = [' ' for x in range(10)]
+import random
 
+Start = input("Vrei sa incepi jocul? 'y/n' ")
 
-def insertLetter(letter, pos):
-    board[pos] = letter
+board = ["-", "-", "-",
+         "-", "-", "-",
+         "-", "-", "-"]
 
+if Start == "y":
+    currentPlayer = "X"
+    winner = None
+    gameRunning = True
 
-def spaceIsFree(pos):
-    return board[pos] == ' '
+    def printBoard(board):
+        print(board[0] + " | " + board[1] + " | " + board[2])
+        print("---------")
+        print(board[3] + " | " + board[4] + " | " + board[5])
+        print("---------")
+        print(board[6] + " | " + board[7] + " | " + board[8])
 
+    def playerInput(board):
+        inp = int(input("Alege o pozitie(1-9): "))
+        if board[inp - 1] == "-":
+            board[inp - 1] = currentPlayer
+        else:
+            print("Pozitia este deja ocupata.")
 
-def printBoard(board):
-    print('   |   |')
-    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
-    print('   |   |')
+    def checkHorizontle(board):
+        global winner
+        if board[0] == board[1] == board[2] and board[0] != "-":
+            winner = board[0]
+            return True
+        elif board[3] == board[4] == board[5] and board[3] != "-":
+            winner = board[3]
+            return True
+        elif board[6] == board[7] == board[8] and board[6] != "-":
+            winner = board[6]
+            return True
 
+    def checkRow(board):
+        global winner
+        if board[0] == board[3] == board[6] and board[0] != "-":
+            winner = board[0]
+            return True
+        elif board[1] == board[4] == board[7] and board[1] != "-":
+            winner = board[1]
+            return True
+        elif board[2] == board[5] == board[8] and board[2] != "-":
+            winner = board[3]
+            return True
 
-def isWinner(bo, le):
-    return (bo[7] == le and bo[8] == le and bo[9] == le) or (bo[4] == le and bo[5] == le and bo[6] == le) or (
-                bo[1] == le and bo[2] == le and bo[3] == le) or (bo[1] == le and bo[4] == le and bo[7] == le) or (
-                       bo[2] == le and bo[5] == le and bo[8] == le) or (
-                       bo[3] == le and bo[6] == le and bo[9] == le) or (
-                       bo[1] == le and bo[5] == le and bo[9] == le) or (bo[3] == le and bo[5] == le and bo[7] == le)
+    def checkDiag(board):
+        global winner
+        if board[0] == board[4] == board[8] and board[0] != "-":
+            winner = board[0]
+            return True
+        elif board[2] == board[4] == board[6] and board[4] != "-":
+            winner = board[2]
+            return True
 
-
-def playerMove():
-    run = True
-    while run:
-        move = input('Alege unde il pui pe \'X\' (1-9): ')
-        try:
-            move = int(move)
-            if move > 0 and move < 10:
-                if spaceIsFree(move):
-                    run = False
-                    insertLetter('X', move)
-                else:
-                    print('Acest spatiu este deja ocupat')
-            else:
-                print('Doar numere de la 1 la 9!')
-        except:
-            print('Introdu un numar')
-
-
-def compMove():
-    possibleMoves = [x for x, letter in enumerate(board) if letter == ' ' and x != 0]
-    move = 0
-
-    for let in ['O', 'X']:
-        for i in possibleMoves:
-            boardCopy = board[:]
-            boardCopy[i] = let
-            if isWinner(boardCopy, let):
-                move = i
-                return move
-
-    cornersOpen = []
-    for i in possibleMoves:
-        if i in [1, 3, 7, 9]:
-            cornersOpen.append(i)
-
-    if len(cornersOpen) > 0:
-        move = selectRandom(cornersOpen)
-        return move
-
-    if 5 in possibleMoves:
-        move = 5
-        return move
-
-    edgesOpen = []
-    for i in possibleMoves:
-        if i in [2, 4, 6, 8]:
-            edgesOpen.append(i)
-
-    if len(edgesOpen) > 0:
-        move = selectRandom(edgesOpen)
-
-    return move
-
-
-def selectRandom(li):
-    import random
-    ln = len(li)
-    r = random.randrange(0, ln)
-    return li[r]
-
-
-def isBoardFull(board):
-    if board.count(' ') > 1:
-        return False
-    else:
-        return True
-
-
-def main():
-    print('Bine ai venit')
-    printBoard(board)
-
-    while not (isBoardFull(board)):
-        if not (isWinner(board, 'O')):
-            playerMove()
+    def checkIfWin(board):
+        global gameRunning
+        if checkHorizontle(board):
             printBoard(board)
+            print(f"Castigatorul este {winner}!")
+            gameRunning = False
+
+        elif checkRow(board):
+            printBoard(board)
+            print(f"Castigatorul este {winner}!")
+            gameRunning = False
+
+        elif checkDiag(board):
+            printBoard(board)
+            print(f"Castigatorul este {winner}!")
+            gameRunning = False
+
+
+    def checkIfTie(board):
+        global gameRunning
+        if "-" not in board:
+            printBoard(board)
+            print("Egalitate!")
+            gameRunning = False
+
+
+    def switchPlayer():
+        global currentPlayer
+        if currentPlayer == "X":
+            currentPlayer = "O"
         else:
-            print('O\'a castigat')
-            break
-
-        if not (isWinner(board, 'X')):
-            move = compMove()
-            if move == 0:
-                print('Egalitate')
-            else:
-                insertLetter('O', move)
-                print('Calculatorul a pus \'O\' in ', move, ':')
-                printBoard(board)
-        else:
-            print('X\'a castigat')
-            break
-
-    if isBoardFull(board):
-        print('Egalitate')
+            currentPlayer = "X"
 
 
-while True:
-    answer = input('Joci din nou? (Y/N)')
-    if answer.lower() == 'y':
-        board = [' ' for x in range(10)]
-        print('-----------------------------------')
-        main()
-    else:
-        break
+    def computer(board):
+        while currentPlayer == "O":
+            position = random.randint(0, 8)
+            if board[position] == "-":
+                board[position] = "O"
+                switchPlayer()
+
+
+    while gameRunning:
+        printBoard(board)
+        playerInput(board)
+        checkIfWin(board)
+        checkIfTie(board)
+        switchPlayer()
+        computer(board)
+        checkIfWin(board)
+        checkIfTie(board)
