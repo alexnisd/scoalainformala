@@ -1,7 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import pickle
-
+# !!!Stiu ca nu am facut tot ce ai cerut tu acolo insa, mi s-a parut interesanta ideea asta, rau!
 # videoclip folosit pentru documentare: https://www.youtube.com/watch?v=8qUJ9a_3zSQ
 
 root = tkinter.Tk()
