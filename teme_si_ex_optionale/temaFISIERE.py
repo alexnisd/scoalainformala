@@ -13,11 +13,12 @@ def add_task():  # functie pentru adaugarea unui task
     if task != "":
         listbox_tasks.insert(tkinter.END, task)  # inseram la sfarsit, acel END la asta se refera, iar dupa , avem un
 # task
-        entry_task.delete(0, tkinter.END) # practic aici dupa ce introducem un task se va sterge textul
+        entry_task.delete(0, tkinter.END)  # practic aici dupa ce introducem un task se va sterge textul
     # introdus din chenarul de add task
     else:
         tkinter.messagebox.showwarning(title="Avertizare", message="Nu poti introduce un task gol")  # practic aici am
 # scris aceasta linie pentru ca utilizatorul sa nu poata introduce un task gol
+
 
 def delete_task():
     try:
@@ -27,15 +28,20 @@ def delete_task():
     except:
         tkinter.messagebox.showwarning(title="Avertizare", message="Nu poti sa stergi nimic, selecteaza un task 😂")
         #  practic am folosit try si except pt ca in cazul in care dadeai delete si nu selectai un task murea codul
+
+
 def load_tasks():
     tasks = pickle.load(open("tasks.dat", "rb"))  # practic acelasi concept ca si la save tasks doar ca aici nu avem
 # write binary avem read binary
     for task in tasks:
         listbox_tasks.insert(tkinter.END, task)  # iar practic aici
+
+
 def save_tasks():
     tasks = listbox_tasks.get(0, listbox_tasks.size())  # practic aici o sa ne dea taskurile ca si un tuplu
     pickle.dump(tasks, open("tasks.dat", "wb"))  # practic aici am folosit pickle pentru ca era cel mai simplu de
 # folosit, pentru moment cel putin, iar acel "wb" se refera la write binary
+
 
 frame_tasks = tkinter.Frame(root)
 frame_tasks.pack()
