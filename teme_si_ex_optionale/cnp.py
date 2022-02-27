@@ -1,5 +1,3 @@
-import random
-
 
 cnp = input("Introduceti CNP-ul: ")
 n = len(cnp)
@@ -22,7 +20,7 @@ lungime()
 
 def alfanumeric():
     if cnp.isdigit():
-        print("E ok ai scapat")
+        print("Format ok")
     else:
         print("Eu nu cred ca cnp-ul tau are litere bossule")
 
@@ -31,30 +29,95 @@ alfanumeric()
 
 
 def sexul():
+    sexul = cnp[0]
+    sexulbun = '1' <= sexul <= '9'
+    if sexulbun:
+        print("Sex ok")
+    else:
+        print('Mai uita-te la sex bro')
 
 
+sexul()
 
 
 def anul():
+    anul = cnp[1:3]
+    anulbun = '00' <= anul <= '99'
+    if anulbun:
+        print('An ok')
+    else:
+        print('An incorect')
+
+
+anul()
 
 
 def luna():
+    luna = cnp[3:5]
+    lunabuna = '01' <= luna <= '12'
+    if lunabuna:
+        print('Luna ok')
+    else:
+        print('Luna incorecta')
+
+
+luna()
 
 
 def ziua():
+    ziua = cnp[5:7]
+    ziuabuna = '01' <= ziua <= '31'
+    if ziuabuna:
+        print('Ziua ok')
+    else:
+        print('Zi incorecta')
 
 
-def cdc():
+ziua()
 
 
-def jud():
-    judet = {
-            '01': 'Alba', '02': 'Arad', '03': 'Arges', '04': 'Bacau', '05': 'Bihor', '06': 'Bistrita-Nasaud',
-            '07': 'Botosani', '08': 'Brasov', '09': 'Braila', '10': 'Buzau', '11': 'Caras-Severin', '12': 'Cluj',
-            '13': 'Constanta', '14': 'Covasna', '15': 'Dambovita', '16': 'Dolj', '17': 'Galati', '18': 'Gorj',
-            '19': 'Harghita', '20': 'Hunedoara', '21': 'Ialomita', '22': 'Iasi', '23': 'Ilfov', '24': 'Maramures',
-            '25': 'Mehedinti', '26': 'Mures', '27': 'Neamt', '28': 'Olt', '29': 'Prahova', '30': 'Satu-Mare',
-            '31': 'Salaj', '32': 'Sibiu', '33': 'Suceava', '34': 'Teleorman', '35': 'Timis', '36': 'Tulcea',
-            '37': 'Vaslui', '38': 'Valcea', '39': 'Vrancea', '40': 'Bucuresti', '41': 'Bucuresti Sector 1',
-            '42': 'Bucuresti Sector 2', '43': 'Bucuresti Sector 3', '44': 'Bucuresti Sector 4',
-            '45': 'Bucuresti Sector 5', '46': 'Bucuresti Sector 6', '51': 'Calarasi', '52': 'Giurgiu'}
+def judet():
+    judet = cnp[7:9]
+    judetbun = '01' <= judet <= '52'
+    if judetbun:
+        print('Judet ok')
+    else:
+        print('Judet incorect')
+
+
+judet()
+
+
+def nnn():
+    nnn = cnp[9:12]
+    nnnb = '001' <= nnn <= '999'
+    if nnnb:
+        print('nnn ok')
+    else:
+        print('nnn incorect')
+
+
+nnn()
+
+
+# def cdc():
+#     cdc = cnp[-1]
+#     cdc = 0
+#     nr_control = '279146358279'
+#     for index, i in enumerate(cnp[:12]):
+#         cdc += int(i) * int(nr_control[index])
+#     cdc = cdc % 11
+#     if cdc == 10:
+#         cdc = 1
+#     cb = cdc == int(cdc)
+#     if cb:
+#         print('cdc ok')
+#     else:
+#         print('cdc incorect')
+#
+#
+if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime:
+    # if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime and cdc:
+    print("CNP ok!")
+else:
+    print('Nu-i ok :)')
