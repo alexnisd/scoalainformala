@@ -12,7 +12,7 @@ n = len(cnp)
 
 def lungime():
     if n != 13:
-        print("Acest CNP nu are numarul corect de litere")
+        print("Acest CNP nu are numarul corect de cifre")
 
 
 lungime()
@@ -100,24 +100,24 @@ def nnn():
 nnn()
 
 
-# def cdc():
-#     cdc = cnp[-1]
-#     cdc = 0
-#     nr_control = '279146358279'
-#     for index, i in enumerate(cnp[:12]):
-#         cdc += int(i) * int(nr_control[index])
-#     cdc = cdc % 11
-#     if cdc == 10:
-#         cdc = 1
-#     cb = cdc == int(cdc)
-#     if cb:
-#         print('cdc ok')
-#     else:
-#         print('cdc incorect')
-#
-#
-if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime:
-    # if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime and cdc:
+def cdc():
+    cdc = cnp[-1]
+    cdc = 0
+    nr_control = '279146358279'
+    for index, i in enumerate(cnp[:12]):
+        cdc += int(i) * int(nr_control[index])
+    cdc = cdc % 11
+    if cdc == 10:
+        cdc = 1
+    cdc = cdc == int(cdc)
+    if cdc:
+        print('cdc ok')
+    else:
+        print('cdc incorect')
+
+
+# if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime:
+if nnn and judet and ziua and luna and anul and sexul and alfanumeric and lungime and cdc:
     print("CNP ok!")
 else:
     print('Nu-i ok :)')
