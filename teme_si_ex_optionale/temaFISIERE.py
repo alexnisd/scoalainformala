@@ -1,8 +1,9 @@
+
+# videoclip folosit pentru documentare: https://www.youtube.com/watch?v=8qUJ9a_3zSQ
+
 import tkinter
 import tkinter.messagebox
 import pickle
-# !!!Stiu ca nu am facut tot ce ai cerut tu acolo insa, mi s-a parut interesanta ideea asta, rau!
-# videoclip folosit pentru documentare: https://www.youtube.com/watch?v=8qUJ9a_3zSQ
 
 root = tkinter.Tk()
 root.title("Lista task-uri")
@@ -16,17 +17,17 @@ def add_task():  # functie pentru adaugarea unui task
         entry_task.delete(0, tkinter.END)  # practic aici dupa ce introducem un task se va sterge textul
     # introdus din chenarul de add task
     else:
-        tkinter.messagebox.showwarning(title="Avertizare", message="Nu poti introduce un task gol")  # practic aici am
+        tkinter.messagebox.showwarning(title="Avertizare‼", message="Nu poti introduce un task gol")  # practic aici am
 # scris aceasta linie pentru ca utilizatorul sa nu poata introduce un task gol
 
 
 def delete_task():
     try:
         task_index = listbox_tasks.curselection()[0]  # practic aici pentru stergere ne trebuie o selectie
-# iar acel 0 este pentru a sterge un singur task, deoarece poti selecta mai multe tasks in acelasi timp
+# iar acel 0 este pentru a sterge un singur task
         listbox_tasks.delete(task_index)  # iar aici aceasta comanda sterge selectia de index
     except:
-        tkinter.messagebox.showwarning(title="Avertizare", message="Nu poti sa stergi nimic, selecteaza un task 😂")
+        tkinter.messagebox.showwarning(title="Avertizare‼", message="Selecteaza un task inainte! 😂")
         #  practic am folosit try si except pt ca in cazul in care dadeai delete si nu selectai un task murea codul
 
 
@@ -70,4 +71,5 @@ button_load_tasks.pack()
 
 button_save_tasks = tkinter.Button(root, text="Salveaza tasks", width=48, command=save_tasks)  # butonul pentru s. task.
 button_save_tasks.pack()
+
 root.mainloop()
