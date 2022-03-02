@@ -12,9 +12,11 @@ def diferenta(a, b) -> str:
 
 def inmultire(a: int, b:int) -> str:
     return f"{a} * {b}= {a * b}"
+
+
 def impartire(a: int, b:int) -> float:
     if b == 0:
-       while b == 0:
+        while b == 0:
             b = int(input("Aloca o noua valoare pentru b: "))
     return f"{a} / {b}= {a / b}"
 
