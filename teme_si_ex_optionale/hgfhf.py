@@ -25,14 +25,14 @@
 #
 # print(string)
 
-string = ["Claudiu", "Claudiu", "Claudiu"]
-substring = "Claudiu"
-
-
-count = string.count(substring)
-
-
-print(count)
+# string = ["Claudiu", "Claudiu", "Claudiu"]
+# substring = "Claudiu"
+#
+#
+# count = string.count(substring)
+#
+#
+# print(count)
 
 # string = ['Maria', 'Irina', Claudiu, Ionut, Irina, Matei, ‘Irina’, ‘Maria’]
 
@@ -51,11 +51,40 @@ def nameChanger(x, y, z):
     string4 = string3.replace(text, z)
     #print(string4)
 string_value = "The Inquisitor must meet Varric on top of Skyhold's battlements to be introduced."
-lista = [[5, 14, 'Conquistador'],[26,31,'King'],[43,49,'Palace']]
+lista = [[5, 14, 'Conquistador'], [26, 31, 'King'], [43, 49, 'Palace']]
 for i in sorted(lista, reverse=True):
     #print(i, string_value[i[0]-1:i[1]])
     string_value = string_value.replace(string_value[i[0]-1:i[1]], i[2])
     print(string_value, '>>>')
 
 nameChanger("Conquistador", "King", "Palace")
+# #
+#
+# # num_calls = 0
+# #
+# #
+# # def execitiu(x):
+# #     global num_calls
+# #     num_calls = 3
+# #     num_calls += 1
+# #     return x * x
+# #
+# # print(execitiu(4))
+#
+# # x = 1
+# #
+# #
+# # def f():
+# #     return x
+# #
+# #
+# # print(x)
+# # print(f())
+#
+# # x = (1, 2, 3)
+# #
+# # x[1] = 4
+# x = [1, 2, "hello", "world", ["another", "list"]]
+# print(len(x[3]))
+
 
