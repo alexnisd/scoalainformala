@@ -159,3 +159,45 @@ def pop():
 # print(obiect_1.varsta, 'varsta')
 # print(obiect_1.nume, 'nume')
 # print(obiect_1.vaccinuri, 'vaccinuri')
+
+# class Vehicul:
+#     pass
+#
+#
+# class VehiculTeren(Vehicul):
+#     pass
+#
+#
+# class VehiculTractare(VehiculTeren):
+#     pass
+
+
+class A:
+
+    def info(self):
+        return "Clasa A"
+
+
+class B(A):
+    pass
+    # def info(self):
+    #     return "Clasa B"
+
+
+class F:
+
+    def info(self):
+        return "Clasa F"
+
+
+class C(A):
+    pass
+    # def info(self):
+    #     return "Clasa C"
+
+
+class D(A, C):
+    pass
+
+
+print(D().info())
