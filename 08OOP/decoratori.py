@@ -133,9 +133,13 @@ class Persoana:
         self.nume = nume
         self.varsta = varsta
 
+    # @classmethod
+    # def varsta_ani(cls, nume, varsta):
+    #     return cls(nume, date.today().year - varsta)
+
     @classmethod
-    def varsta_ani(cls, nume, varsta):
-        return cls(nume, date.today().year - varsta)
+    def varsta_ani(self, nume, varsta):
+        return self(nume, date.today().year - varsta)
 
     # @staticmethod
     # def varsta_ani(varsta):
@@ -151,4 +155,5 @@ persoana_1 = Persoana("Ion", 21)
 # persoana_2 = Persoana.varsta_ani("Maria", 20)
 # print(persoana_2.varsta)
 # print(Persoana.stare(16))
-print(Persoana.varsta_ani(20))
+# print(Persoana.varsta_ani(20))
+print(persoana_1.varsta)
