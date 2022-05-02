@@ -23,7 +23,7 @@ print(header)
 print(table_text)
 print(dictionar)
 df = pd.DataFrame(dictionar)
-df.to_csv("CazuriCovid6.xls")
+df.to_csv("CazuriCovid.xls") #am luat cazurile pe rand dar nu am mai facut alt cod, pur si simplu am scris in acelasi cod si le-am facut xls-uri separate. (ex.: CazuriCovid2, 3, 4.. etc.)
 
 
 # from bs4 import BeautifulSoup
